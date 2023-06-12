@@ -1,0 +1,29 @@
+.container{
+    width: 100lvw;
+    height: 100lvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.wrapper{
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: 80px 40px;
+    border: 4px dashed #4B4B4B;
+    border-radius: 25px;
+}
+.title{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.title h1{
+    margin: 0;
+    padding: 0;
+}

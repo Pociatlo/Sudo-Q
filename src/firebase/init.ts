@@ -7,7 +7,7 @@ import { initializeApp } from "firebase/app";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // Initialize Firebase
 const firebaseconfig= {
-    apiKey: process.env["FIREBASE_API_KEY"],
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     authDomain: "sudo-q.firebaseapp.com",
     projectId: "sudo-q",
     storageBucket: "sudo-q.appspot.com",
@@ -15,6 +15,7 @@ const firebaseconfig= {
     appId: "1:297886481997:web:ae7218370c83aa087c6604",
     measurementId: "G-7YLNG9D0T8"
 }
+console.log(firebaseconfig)
 export const app = initializeApp(firebaseconfig);
 
 

@@ -1,20 +1,18 @@
 import styles from './page.module.css'
-import Button from "@/component/Button/Button";
-import {initFirebase} from "@/firebase/init";
-import {getAuth, signInWithPopup, GoogleAuthProvider, UserCredential} from "firebase/auth";
+import Image from "next/image";
+import AuthComponent from "@/component/Organisms/AuthComponent/AuthComponent";
+
 
 export default function Home() {
-
-  const app = initFirebase();
-  const provider = new GoogleAuthProvider();
-  const auth = getAuth();
-
-  const signIn = async () => {
-    const user  = await signInWithPopup(auth, provider);
-    console.log(user.user)
-  }
-
   return (
-    <Button child={<p>Zaloguj</p>}  onc={signIn}/>
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <h1>Sudo-Q</h1>
+          <Image src={"/icons/sudoku.png"} alt={"sudoku"} width={64} height={64}/>
+        </div>
+        <div className={styles.wrapper}>
+            <AuthComponent></AuthComponent>
+        </div>
+      </div>
   )
 }
