@@ -1,31 +1,34 @@
 'use client';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Input from "@/component/Atoms/Input/Input";
 import Button from "@/component/Atoms/Button/Button";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+import {useState} from "react";
 
-export default function LoginForm(){
+export default function SignInForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const Login = () =>{
+
+
+    const SignIn= () => {
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                console.log(user.email);
+
+
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+
             });
     }
-
     return(
         <>
-            <Input onInputChange={e=>setEmail(e)} placeholder={"email"} />
-            <Input onInputChange={e=>setPassword(e)} placeholder={"password"} />
-            <Button onc={Login}>Login</Button>
+            <Input onInputChange={(e)=>setEmail(e)} placeholder={"email"}></Input>
+            <Input onInputChange={(e)=>setPassword(e)} placeholder={"password"}></Input>
+            <Button onc={SignIn}>Sign In</Button>
         </>
     )
 }
