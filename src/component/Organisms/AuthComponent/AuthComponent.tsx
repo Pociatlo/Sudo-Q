@@ -3,6 +3,7 @@ import styles from "./AuthComponent.module.css"
 import LoginForm from "@/component/Molecules/LoginForm/LoginForm";
 import GoogleButton from "@/component/Molecules/GoogleButton/GoogleButton";
 import {useState} from "react";
+import SignInForm from "@/component/Molecules/SignInForm/SignInForm";
 
 export default function AuthComponent(){
     const [stage, setStage] = useState("login")
@@ -17,7 +18,10 @@ export default function AuthComponent(){
                 </>
             }
             {stage=="register"&&
-                <a className={styles.text} onClick={event => setStage("login")}>You have an account? Login</a>
+                <>
+                    <SignInForm />
+                    <a className={styles.text} onClick={event => setStage("login")}>You have an account? Login</a>
+                </>
             }
         </>
     )
